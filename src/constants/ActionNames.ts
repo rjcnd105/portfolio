@@ -1,0 +1,2 @@
+export const FETCH_PROJECT = 'FETCH_PROJECT';
+export const CLOSE_PROJECT = 'CLOSE_PROJECT';
