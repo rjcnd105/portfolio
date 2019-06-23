@@ -1,58 +1,54 @@
-import * as React from 'react';
-import Masonry from 'react-masonry-component';
+import React, { useEffect, createRef, RefObject } from 'react';
 import { connect } from 'react-redux';
-import { fetchProject } from '../actions';
 import { ProjectData, RootState } from '../types';
-import { BaseProps, MouseHandler } from '../types/common';
+import { BaseProps } from '../types/common';
 import GalleryItem from './GalleryItem';
+import { Grid, makeStyles } from '@material-ui/core';
 
-const masonryOptions = {
-  transitionDuration: 400,
-};
+
+const useStyles = makeStyles({
+  item: {
+    // transition: '.6s padding'
+  }
+});
 
 type Props = BaseProps & {
   projectList: ProjectData[],
-  onClick?: MouseHandler
+  type: string,
 }
 
-type State = {}
+const ProjectGallery: React.FC<Props> = (props) => {
 
-const imagesLoadedOptions = { background: '.my-bg-image-el' };
+  const { projectList, type } = props;
+  const element: RefObject<HTMLElement> = createRef();
+  const classes = useStyles();
+  // useEffect(() => {}, []);
 
-class ProjectGallery extends React.Component<Props, State> {
-  public render() {
-    const childElements = this.props.projectList.map((data: ProjectData) => <GalleryItem key={data.name} {...data}/>);
-
-    return (
-      <Masonry
-        className={'my-gallery-class'} // default ''
-        elementType={'ul'} // default 'div'
-        options={masonryOptions} // default {}
-        disableImagesLoaded={false} // default false
-        updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-        // imagesLoadedOptions={imagesLoadedOptions} // default {}
-      >
-        {childElements}
-      </Masonry>
-    );
-  }
-}
+  return (
+    <Grid container ref={element} spacing={3} style={{ overflow: 'none !important' }}>
+      {/*<div className="gutter-sizer"/>*/}
+      {projectList.map((data: ProjectData) => <Grid item xs={6} sm={6} md={4} key={data.name} className={classes.item}><GalleryItem
+        className={`project_item`}
+        {...data}/></Grid>)}
+    </Grid>
+  );
+};
 
 // const map;
-const mapStateToProps = ({ projectList }: RootState): { projectList: ProjectData[] } => ({
+const mapStateToProps = ({ projectList }: RootState): Props => ({
   projectList,
+  type: 'image',
 });
 
-const mapStateToProps2 = ({ toyProjectList }: RootState): { toyProjectList: ProjectData[] } => ({
-  toyProjectList,
+const mapStateToPropsToy = ({ toyProjectList }: RootState): Props => ({
+  projectList: toyProjectList,
+  type: 'frame',
 });
 
-export const WorkProjectGallery =  connect(
+export const WorkProjectGallery = connect(
   mapStateToProps,
-  { fetchProject },
 )(ProjectGallery);
 
-export const ToyProjectGallery =  connect(
-  mapStateToProps,
-  { fetchProject },
+export const ToyProjectGallery = connect(
+  mapStateToPropsToy,
 )(ProjectGallery);

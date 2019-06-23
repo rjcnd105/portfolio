@@ -4,7 +4,7 @@ import { RootState } from '../types';
 
 // const ROOT_URL = 'https://hoejun.s3.ap-northeast-2.amazonaws.com/project/';
 
-const initialShowingProject = undefined;
+const initialShowingProject = null;
 export default function (state = initialShowingProject, action: {type: string, payload: any}) {
   switch (action.type) {
     case CLOSE_PROJECT:
