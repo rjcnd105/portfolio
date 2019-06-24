@@ -1,16 +1,18 @@
-import { closeProject, fetchProject } from '../actions';
 import { CLOSE_PROJECT, FETCH_PROJECT } from '../constants/ActionNames';
 import { RootState } from '../types';
 
-// const ROOT_URL = 'https://hoejun.s3.ap-northeast-2.amazonaws.com/project/';
 
 const initialShowingProject = null;
+
 export default function (state = initialShowingProject, action: {type: string, payload: any}) {
+  console.log('aaa');
   switch (action.type) {
     case CLOSE_PROJECT:
-      return;
+      return null;
     case FETCH_PROJECT:
+      console.log(action.payload);
       return;
+      // return action.payload;
   }
   return initialShowingProject;
 };

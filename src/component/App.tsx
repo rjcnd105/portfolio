@@ -4,11 +4,10 @@ import { ToyProjectGallery, WorkProjectGallery } from './ProjectGallery';
 import ProjectViewFrame from './ProjectView';
 import { makeStyles, useTheme, createStyles } from '@material-ui/styles';
 import { colors } from '../constants/colors';
-import { classes } from "istanbul-lib-coverage";
+import ProjectView from "./ProjectView";
 
 const sideBarWidth = "60px";
 const useStyles = makeStyles((theme: Theme) => {
-  console.log(theme);
   return createStyles({
     root: {
       display: 'flex',
@@ -80,8 +79,6 @@ const App: React.FC = () => {
   const classes = useStyles();
   const theme = useTheme();
 
-  console.log(theme);
-
   const SubContentWrapper: React.FC<{ subTitle: string, className: string }> = ({ subTitle, className, children }) => <Box
     className={className}>
     <Container maxWidth="lg">
@@ -136,6 +133,7 @@ const App: React.FC = () => {
         <SubContentWrapper subTitle="Contatct" className={`${classes.sections} ${classes.sec6}`}>
         </SubContentWrapper>
       </Grid>
+      <ProjectView/>
     </Grid>
   );
 };

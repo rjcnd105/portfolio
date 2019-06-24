@@ -5,13 +5,23 @@ import './style/index.scss';
 
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
-import reduxPromise from 'redux-promise'
+import ReduxPromise from 'redux-promise'
 import reducers from './reducers'
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from "@material-ui/core";
 
-const createStoreWithMiddleware = applyMiddleware(reduxPromise)(createStore);
-const theme = createMuiTheme();
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 450,
+      md: 960,
+      lg: 1280,
+      xl: 1920
+    }
+  }
+});
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>

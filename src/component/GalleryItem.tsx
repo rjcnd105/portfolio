@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { fetchProject } from '../actions';
+import { fetchProject, openProject } from '../actions';
 import { ProjectData } from '../types';
 import { BaseProps, MouseHandler } from '../types/common';
 import { connect } from "react-redux";
@@ -46,24 +46,24 @@ const useStyles = makeStyles((theme: Theme) => ({
   name: {
     paddingTop: '.6em',
     paddingBottom: '.5em',
-    fontSize: '.7rem',
+    fontSize: '.85rem',
     color: '#222',
     paddingLeft: '7px',
     paddingRight: '7px',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
-    [theme.breakpoints.up("sm")]: {
-      fontSize: '.8rem',
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: '.85rem',
-    },
+    // [theme.breakpoints.up("sm")]: {
+    //   fontSize: '.8rem',
+    // },
+    // [theme.breakpoints.up("md")]: {
+    //   fontSize: '.85rem',
+    // },
   }
 }));
 
 
-const GalleryItem: React.FC<BaseProps & ProjectData> = (props) => {
+const GalleryItem: React.FC<BaseProps & ProjectData & {type: 'image' | 'frame'}> = (props) => {
 
   // React HOOK useState
   const [isHover, setIsHover] = useState(false);
@@ -74,7 +74,12 @@ const GalleryItem: React.FC<BaseProps & ProjectData> = (props) => {
 
   const onProjectClick = (src: string): MouseHandler => e => {
     e.preventDefault();
-    fetchProject(src);
+    if(props.type === "frame"){
+      fetchProject(src);
+    }
+    else if(props.type === 'image'){
+      openProject(props);
+    }
   };
   const onProjectMouseEnter = (el: HTMLElement | undefined): MouseHandler => (e) => {
     // setIsHover(true);
