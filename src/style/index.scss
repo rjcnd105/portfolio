@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Gothic+A1:200&display=swap&subset=korean');
+//@import url('https://fonts.googleapis.com/css?family=Gothic+A1:200&display=swap&subset=korean');
 @import "~reset-css";
 
+html{
+  height: 100%;}
 body {
   margin: 0;
+  overflow: hidden;
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Gothic A1', 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
@@ -11,3 +15,9 @@ body {
 
   background-color:#FFFFFF;
 }
+#root{
+  height: 100%;
+}
+
+.clfix:after,.clfix:before{line-height:0;display:table;content:''}
+.clfix:after{clear:both}

@@ -1,16 +1,13 @@
-import axios from 'axios';
-import * as types from '../constants/ActionNames'
-import { ProjectData } from '../types';
+import { CLOSE_PROJECT, SELECT_PROJECT } from "../constants/ActionNames";
+import { ShowingProject } from '../types';
 
-export const fetchProject =
-  (url: string) => ({
-    type: types.FETCH_PROJECT, payload: axios.get(url, {
-      headers: {
-        'method': 'GET',
-        'Access-Control-Allow-Origin': '*',
-      },
-    })
-  });
-export const openProject = (projectData: ProjectData) => ({ type: types.SELECT_PROJECT, payload: projectData });
-export const closeProject =
-  () => ({ type: types.CLOSE_PROJECT });
+type actionReturn<P = undefined> = {
+  type: string,
+  payload?: P
+}
+
+export type SetShowingProject= (sp: ShowingProject) => actionReturn<ShowingProject>
+export type CloseProject= () => actionReturn
+
+export const setShowingProject: SetShowingProject = (showingProject) => ({ type: SELECT_PROJECT, payload: showingProject });
+export const closeProject:CloseProject = () => ({ type: CLOSE_PROJECT });

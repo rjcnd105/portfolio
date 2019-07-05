@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { fetchProject, openProject } from '../actions';
-import { ProjectData } from '../types';
+import {  SetShowingProject, setShowingProject } from '../actions';
+import { ShowingProject } from '../types';
 import { BaseProps, MouseHandler } from '../types/common';
 import { connect } from "react-redux";
 import { makeStyles, useTheme } from '@material-ui/styles';
 import { Theme, Typography } from "@material-ui/core";
+import { Dispatch } from "redux";
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -16,15 +17,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: 'white',
     padding: '0 0',
     overflow: 'hidden',
-    transition: 'all 0.9s cubic-bezier(.25,.8,.25,1)',
-    boxShadow: '0px 2px 8px 0px rgba(88,88,88,0.2)',
-    borderRadius: "18px",
+    transition: 'all 0.7s cubic-bezier(.25,.8,.25,1)',
+    boxShadow: '0 0 3.4rem -.8rem rgba(33,33,33,.2)',
+    borderRadius: "3px",
     // boxShadow: '0px 1px 5px 0px rgba(119,119,119,0.1)',
-    '&:hover': {
-      transform: 'translateY(-10px)',
-      boxShadow: '2px 8px 20px 1px rgba(88,88,88,0.45)',
+    '&:hover, &:focus': {
+      transform: 'translateY(-8px)',
+      boxShadow: '0 0 3.7rem -.8rem rgba(33,33,33,0.42)',
       cursor: 'pointer'
     },
+    [theme.breakpoints.down("sm")]: {
+      '&:hover, &:focus': {
+        transform: 'translateY(-12px)',
+      }
+    }
   },
   imgArea: {
     width: '100%',
@@ -44,12 +50,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '100%'
   },
   name: {
-    paddingTop: '.6em',
-    paddingBottom: '.5em',
-    fontSize: '.85rem',
-    color: '#222',
-    paddingLeft: '7px',
-    paddingRight: '7px',
+    padding: '.7em .7em .6em .7em',
+    fontSize: '1rem',
+    color: '#383838',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
@@ -61,40 +64,39 @@ const useStyles = makeStyles((theme: Theme) => ({
     // },
   }
 }));
+interface ParentProps extends ShowingProject {}
 
+interface DispatchProps {
+  setShowingProject: SetShowingProject
+}
+const GalleryItem: React.FC<BaseProps & ParentProps & DispatchProps> = (props) => {
 
-const GalleryItem: React.FC<BaseProps & ProjectData & {type: 'image' | 'frame'}> = (props) => {
-
-  // React HOOK useState
-  const [isHover, setIsHover] = useState(false);
   const [el, setEl] = useState<HTMLButtonElement | undefined>();
-  const { name, url, src, thumbnail } = props;
+  const { name, url, src, thumbnail } = props.project;
   const classes = useStyles();
   const Theme = useTheme();
 
-  const onProjectClick = (src: string): MouseHandler => e => {
+  const onProjectClick = (): MouseHandler => e => {
     e.preventDefault();
-    if(props.type === "frame"){
-      fetchProject(src);
-    }
-    else if(props.type === 'image'){
-      openProject(props);
-    }
+    props.setShowingProject({
+      type: props.type,
+      project: props.project
+    });
   };
-  const onProjectMouseEnter = (el: HTMLElement | undefined): MouseHandler => (e) => {
-    // setIsHover(true);
-  };
-  const onProjectMouseLeave = (el: HTMLElement | undefined): MouseHandler => (e) => {
-    // setIsHover(false);
-  };
-  const onProjectMouseMove = (el: HTMLElement | undefined): MouseHandler => (e) => {
-    if (el) {
-      const { bottom, top, left, right } = el.getClientRects()[0];
-      const [centerX, centerY] = [(left + right) / 2, (bottom + top) / 2];
-      const { clientX, clientY } = e;
-
-    }
-  };
+  // const onProjectMouseEnter = (el: HTMLElement | undefined): MouseHandler => (e) => {
+  //   // setIsHover(true);
+  // };
+  // const onProjectMouseLeave = (el: HTMLElement | undefined): MouseHandler => (e) => {
+  //   // setIsHover(false);
+  // };
+  // const onProjectMouseMove = (el: HTMLElement | undefined): MouseHandler => (e) => {
+  //   if (el) {
+  //     const { bottom, top, left, right } = el.getClientRects()[0];
+  //     const [centerX, centerY] = [(left + right) / 2, (bottom + top) / 2];
+  //     const { clientX, clientY } = e;
+  //
+  //   }
+  // };
 
   // useEffect(() => {}, []);
 
@@ -105,10 +107,10 @@ const GalleryItem: React.FC<BaseProps & ProjectData & {type: 'image' | 'frame'}>
       }
     }}
     className={classes.root}
-    onClick={url ? onProjectClick(url) : () => false}
-    onMouseEnter={onProjectMouseEnter(el)}
-    onMouseMove={onProjectMouseMove(el)}
-    onMouseLeave={onProjectMouseLeave(el)}
+    onClick={onProjectClick()}
+    // onMouseEnter={onProjectMouseEnter(el)}
+    // onMouseMove={onProjectMouseMove(el)}
+    // onMouseLeave={onProjectMouseLeave(el)}
   >
     <div className={classes.imgArea}>
       <img src={thumbnail ? thumbnail : './images/noimg_large.gif'} alt={name} className={classes.img}/>
@@ -117,5 +119,12 @@ const GalleryItem: React.FC<BaseProps & ProjectData & {type: 'image' | 'frame'}>
   </button>
 };
 
+const mapDispatchToProps = (dispatch: Dispatch):
+  DispatchProps => ({
+    // dispatching plain actions
+    setShowingProject: (d) => dispatch(setShowingProject(d)),
+  });
+
+
 export default connect(null,
-  { fetchProject })(GalleryItem);
+  mapDispatchToProps)(GalleryItem);

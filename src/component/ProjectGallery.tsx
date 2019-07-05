@@ -8,11 +8,10 @@ import { makeStyles, useTheme, createStyles } from '@material-ui/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme: Theme) => ({
-
   item: {
-    padding: '8px',
+    padding: '12px',
     [theme.breakpoints.down("sm")]: {
-      padding: '12px',
+      padding: '16px',
     }
   }
 }));
@@ -32,9 +31,7 @@ const ProjectGallery: React.FC<Props> = (props) => {
   // useEffect(() => {}, []);
 
   const items = projectList.map((data: ProjectData, i) => <Grid item xs={12} sm={6} md={4} key={data.name} className={classes.item}><GalleryItem type={props.type}
-    className={`project_item`}
-    {...data}/></Grid>);
-
+    className={`project_item`} project={data}/></Grid>);
   if(matches){
 
   }
