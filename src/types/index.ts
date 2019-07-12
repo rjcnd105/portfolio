@@ -16,11 +16,6 @@ export type ShowingProject = {
   type: 'image' | 'frame',
 }
 
-export type NavItems = [
-  ContentNames,
-  RefObject<any> | undefined
-  ][] | undefined;
-
 export type EtcData = {
   title: string,
   description: string,
@@ -33,8 +28,5 @@ export interface RootState {
   showingProject: ShowingProject,
 }
 
-export type ContentNames = 'Portfolio' | 'Skills' | 'Experiences' | 'Contact';
-
-export type Colors = {
-  [key in ContentNames]: string;
-};
+export type ContentNames = 'Introduce' | 'Project' | 'Skills' | 'Experiences' | 'Contact';
+export type NavItems = ContentNames[];

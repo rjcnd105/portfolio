@@ -16,7 +16,7 @@ export default [
     url: 'https://www.lottemuseum.com/',
     mUrl: 'https://www.lottemuseum.com/Mobile',
     areaDate: ['2017. 9', '2017. 11'],
-    techStack: 'Data Api 정의 및 Ajax 처리, SPA, Gulp, Sass, css3, Gsap, uxui, Youtube Api, Minify, Image lazy load, 적응형 + 반응형 디자인, IE8+ 크로스브라우징, SVG 애니메이션, Swiper',
+    techStack: 'Data Api 정의 및 Ajax 처리, SPA, Gulp, Sass, PostCSS, css3, Gsap, uxui, Youtube Api, Minify, Image lazy load, 적응형 + 반응형 디자인, IE8+ 크로스브라우징, SVG 애니메이션, Swiper',
     description: '제가 2년간 스크립터로 일하며 가장 큰 보람을 느꼈던 프로젝트입니다. </br> 모든 스크립트와 대부분의 모션 UX를 제가 맡아 뮤지엄에 맞게 유려한 모션을 구현하는 데 초점을 두었으며, 사용자에 동작에 반응하는 느낌을 줌으로써 직접 작품을 고르는 느낌을 내었습니다. </br> 메인 페이지는 페이지 이동 없이 많은 양의 데이터와 이미지를 받아야 하므로 SPA 형식을 구현하기 위해 동적으로 AJAX를 하였고 퀄리티 높은 이미지를 사용자의 딜레이를 최소한으로 하며 뿌려주기 위해 이미지의 Lazy loding을 전체적으로 적용시켰습니다.'
   },
   {
@@ -37,8 +37,8 @@ export default [
     src: imgFolder + 'holo.jpg',
     url: 'http://www.holotive.com/',
     areaDate: ['2016. 12', '2017. 1'],
-    techStack: 'ES6~ES9, filtering, masonry layout, gulp, 반응형, Vimeo Api, Vimeo & 이미지 슬라이드',
-    description: '중국 고객이 많은 기업이라 영상을 생소한 Vimeo로 작업하였습니다. 반응형에 이미지 + 영상 슬라이드까지 겹쳐 꽤나 성능과 호환성, 최적화를 거치느라 꽤나 애먹었던 기억이 나네요. </br> 그 외에도 <a target="_blank" href="http://www.holotive.com/ko/portfolio/">포트폴리오 페이지</a>에서 필터링 기능에 반응형 고려, Filtering, View More 기능까지 있어 꽤나 도전하는 재미있었습니다.<br/> isotope 라이브러리를 사용했지만 늘 클라이언트는 라이브러리를 초월한 것을 주문한다죠. 그리하여 많은 커스터마이징을 거치게 되었습니다. 이때 운영이 우리 쪽이라 Gulp에 처음으로 Babel을 도입해서 그동안 너무나도 쓰고 싶었던 es6~9 문법을 잔뜩 쓸 수 있어서 굉장히 보람 있었습니다.'
+    techStack: 'ES6~ES9, filtering, masonry layout, gulp, 반응형 웹, Vimeo Api, Vimeo & 이미지 슬라이드',
+    description: '중국 고객이 많은 기업이라 영상을 생소한 Vimeo로 작업하였습니다. 반응형에 이미지 + 영상 슬라이드까지 겹쳐 성능과 호환성, 최적화를 거치느라 꽤나 애먹었던 기억이 나네요. </br> 그 외에도 <a target="_blank" href="http://www.holotive.com/ko/portfolio/">포트폴리오 페이지</a>에서 필터링 기능에 반응형 고려, Filtering, View More 기능까지 있어 도전하는 재미있었습니다.<br/> isotope 라이브러리를 사용했지만 늘 클라이언트는 라이브러리를 초월한 것을 주문한다죠. 그리하여 많은 커스터마이징을 거치게 되었습니다. 이때 운영이 우리 쪽이라 Gulp에 처음으로 Babel을 도입해서 그동안 너무나도 쓰고 싶었던 es6~9 문법을 잔뜩 쓸 수 있어서 굉장히 보람 있었습니다.'
   },
 
 
@@ -48,8 +48,8 @@ export default [
     src: imgFolder + 'petpermint.jpg',
     url: 'https://store.meritzfire.com/pet/product.do#!/contractPopup',
     areaDate: ['2018. 10', '2018. 11'],
-    techStack: '',
-    description: ''
+    techStack: 'Angular, jQuery',
+    description: '처음 맡아보는 Angular 프로젝트였습니다. Angular을 쓰는데 큰 어려움은 없었지만 기존 작업자가 빠지고 갑작스럽게 투입되었으며 보험 프로젝트답게 복잡한 비즈니스 로직을 가지고 있어 빠른 시간내에 습득과 작업을 하느라 체력을 많이 소모했습니다.'
   },
   {
     name: '롯데문화센터 홈페이지 리뉴얼',
@@ -57,8 +57,8 @@ export default [
     src: imgFolder + 'lotteculture.jpg',
     url: 'https://culture.lotteshopping.com/index.do',
     areaDate: ['2018. 9', '2018. 10'],
-    techStack: '',
-    description: ''
+    techStack: 'gulp, Web Accessibility',
+    description: '사용자들이 많이 몰리는 사이트인 만큼 견고함과 웹 접근성이 중요했습니다. 오픈날까지 시간은 촉박해서 개발자와 많은 커뮤니케이션을 했으며 회사의 접근성 전문가와 함께 스크립트로 접근성 작업에 많은 힘을 쏟았습니다.'
   },
 
   {
@@ -68,8 +68,8 @@ export default [
     // url: 'http://www.yw-medalland.com/',
     url: '',
     areaDate: ['2017. 4', '2017. 4'],
-    techStack: '',
-    description: 'https://www.youtube.com/watch?v=ae0Y1QxpCMg'
+    techStack: 'SVG, Ajax, Sound 조작',
+    description: '요괴메달랜드에서 룰렛 게임을 만들고 사이트에 각종 uiux 이펙트를 넣었습니다. 아쉽게도 사이트는 없어졌지만 유튜브에 영상이 있어서 올립니다. <a href="https://www.youtube.com/watch?v=ae0Y1QxpCMg" title="요괴워치 동영상 유튜브">유튜브</a><br/> 서버로부터 결과값을 받아 SVG를 그리고 해당하는 결과에 멈추게끔 작업하였습니다.'
   },
 
   {
@@ -78,8 +78,8 @@ export default [
     src: imgFolder + 'bausch_mockup.jpg',
     url: '',
     areaDate: ['2017. 1', '2017. 2'],
-    techStack: '',
-    description: ''
+    techStack: 'Hybrid App, gsap, jquery, css3 filter',
+    description: '하이브리드 앱에 들어가는 스크립트 작업을 하였습니다. 웹뷰가 구형이라 스크립트시 적용되지 않는 코드가 많았으며 프론트단에 개발환경이 다 갖추어지지 않아 늘 개발단에서 디버깅을 해야한다는게 좀 애로사항이였네요.'
   },
   {
     name: 'LG 경제연구원 홈페이지 리뉴얼',
@@ -87,18 +87,18 @@ export default [
     src: imgFolder + 'lgeconomy.jpg',
     url: 'http://www.lgeri.com/index.do',
     areaDate: ['2016. 12', '2017. 1'],
-    techStack: '',
+    techStack: '회사에 들어가 처음 작업한 프로젝트입니다. 반응형 웹',
     description: ''
   },
-  {
-    name: '유진자산운용 홈페이지 리뉴얼',
-    thumbnail: imgFolder + 'eugen_thumb.png',
-    src: imgFolder + 'eugen.jpg',
-    url: 'http://fund.eugenefn.com/',
-    areaDate: ['2017. 2', '2017. 2'],
-    techStack: '',
-    description: ''
-  },
+  // {
+  //   name: '유진자산운용 홈페이지 리뉴얼',
+  //   thumbnail: imgFolder + 'eugen_thumb.png',
+  //   src: imgFolder + 'eugen.jpg',
+  //   url: 'http://fund.eugenefn.com/',
+  //   areaDate: ['2017. 2', '2017. 2'],
+  //   techStack: '',
+  //   description: ''
+  // },
 
   {
     name: 'P-City 홈페이지 및 모바일웹 구축',
@@ -118,15 +118,15 @@ export default [
   //   techStack: '',
   //   description: ''
   // },
-  {
-    name: '한국야쿠르트 웹사이트 운영',
-    thumbnail: imgFolder + 'hy_thumb.jpg',
-    src: imgFolder + 'hy.jpg',
-    url: 'http://www.hyfresh.co.kr/main.do',
-    areaDate: ['2017. 7', '2017 .8'],
-    techStack: '',
-    description: ''
-  },
+  // {
+  //   name: '한국야쿠르트 웹사이트 운영',
+  //   thumbnail: imgFolder + 'hy_thumb.jpg',
+  //   src: imgFolder + 'hy.jpg',
+  //   url: 'http://www.hyfresh.co.kr/main.do',
+  //   areaDate: ['2017. 7', '2017 .8'],
+  //   techStack: '',
+  //   description: ''
+  // },
   // {
   //   name: '현대해상 SFA 리뉴얼',
   //   thumbnail: '',
@@ -173,15 +173,15 @@ export default [
     techStack: '',
     description: ''
   },
-  {
-    name: '아워홈 지수원 통합 리뉴얼',
-    thumbnail: imgFolder + 'jisoo_thumb.jpg',
-    src: imgFolder + 'jisoo.jpg',
-    url: 'https://www.jisooacademy.co.kr/#sc1',
-    areaDate: ['2017. 4', '2017. 5'],
-    techStack: '',
-    description: ''
-  },
+  // {
+  //   name: '아워홈 지수원 통합 리뉴얼',
+  //   thumbnail: imgFolder + 'jisoo_thumb.jpg',
+  //   src: imgFolder + 'jisoo.jpg',
+  //   url: 'https://www.jisooacademy.co.kr/#sc1',
+  //   areaDate: ['2017. 4', '2017. 5'],
+  //   techStack: '',
+  //   description: ''
+  // },
   // {
   //   name: '두피디아 여행기 리뉴얼',
   //   thumbnail: '',

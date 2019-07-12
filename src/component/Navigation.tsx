@@ -1,7 +1,6 @@
-import React, { useEffect, createRef, RefObject } from 'react';
-import { Drawer, Hidden, Theme, Box, Breadcrumbs, Paper, Link } from "@material-ui/core";
+import React, { useEffect, createRef, RefObject, useState } from 'react';
+import { Drawer, Hidden, Theme, Box, Breadcrumbs, Paper, Link, ButtonBase } from "@material-ui/core";
 import { NavItems } from "../types";
-import commonStyle from "../style/commonStyle";
 import { colors } from "../constants/colors";
 import { makeStyles, useTheme, createStyles } from '@material-ui/styles';
 
@@ -12,58 +11,81 @@ const useStyles = makeStyles((theme: Theme) =>
       position: 'relative',
     },
     colorBar: {
-      backgroundColor: colors.Portfolio,
+      // backgroundColor: colors.Project,
       width: '4px',
       height: '100%',
+      '&.introduce': {
+        backgroundColor: colors.Introduce
+      },
+      '&.portfolio': {
+        backgroundColor: colors.Project
+      },
+      '&.skills': {
+        backgroundColor: colors.Skills
+      },
+      '&.contact': {
+        backgroundColor: colors.Contact
+      },
+      '&.experiences': {
+        backgroundColor: colors.Experiences
+      },
     },
     pcNavInner: {
       position: 'absolute',
-      left: '50%', top: '50%', transform: 'translate(-50%, -50%) rotate(90deg)',
-      '& .pc-nav-item':{
-        opacity: .4,
+      left: '50%', top: '50%',
+      transform: 'translate(-50%, -50%) rotate(90deg)',
+      transformOrigin: '50% 25%',
+      color: '#333',
+      '& .pc-nav-item': {
+        transition: '.6s all',
+        opacity: .27,
         fontSize: '1.2rem',
-        padding: '0 20px'
-      }
-    },
-    ['Portfolio']: {
-      '& .inner-box:before': { backgroundColor: colors.Portfolio }
-    },
-    ['Skills']: {
-      '& .inner-box:before': { backgroundColor: colors.Skills }
-    },
-    ['Contact']: {
-      '& .inner-box:before': { backgroundColor: colors.Contact }
-    },
-    ['Experiences']: {
-      '& .inner-box:before': { backgroundColor: colors.Experiences }
+        padding: '0 20px',
+        display: 'inline'
+      },
+      '& .pc-nav-item.pc-nav-item--active': {
+        opacity: .9
+      },
     },
   }));
 
 
 type Props = {
   rootClass?: string,
-  navItems: NavItems,
-  onItemClick?: <P>(props?: P) => void,
-  changeActiveItem?: <P>(props?: P) => void,
+  onItemClick?: (name: string) => void,
+  changeActiveItem?: (el: HTMLButtonElement) => void,
+  navItems: string[],
 }
-const Navigation: React.FC<Props> = ({ rootClass, navItems }) => {
+const Navigation: React.FC<Props> = ({ rootClass, onItemClick, navItems }) => {
   const cls = useStyles();
 
-  return (
-    <nav className={`${rootClass} ${cls.navBar}`}>
-      <Hidden smDown>
-        <Box className={cls.colorBar}></Box>
-        <Box className={cls.pcNavInner}>
-          <Link href="/" className='pc-nav-item'>Home</Link>
-          <Link href="/" className='pc-nav-item'>Portfolio</Link>
-          <Link href="/" className='pc-nav-item'>Skills</Link>
-          <Link href="/" className='pc-nav-item'>Skills</Link>
-          <Link href="/" className='pc-nav-item'>Contact</Link>
-        </Box>
-        {/*<Drawer className={cls.navBar}></Drawer>*/}
-      </Hidden>
+  console.log(navItems);
+  const handleItemClick = (name: string) => () => {
+    if (onItemClick) {
+      onItemClick(name);
+    }
+  };
 
-    </nav>
+  const [activeItem, setActiveItem] = useState<string>(navItems[0]);
+  return (
+    <>
+      {
+        (navItems.length > 0) &&
+          <nav className={`${rootClass} ${cls.navBar}`}>
+            <Hidden smDown>
+              <Box className={`${cls.colorBar} ${activeItem.toLowerCase()}`}/>
+              <Box className={cls.pcNavInner}>
+                {
+                  navItems.map((v, i) =>
+                    <ButtonBase href="/" className={`pc-nav-item ${v === activeItem && 'pc-nav-item--active'}`}
+                                onClick={handleItemClick(v)}>{v}</ButtonBase>)
+                }
+              </Box>
+              {/*<Drawer className={cls.navBar}></Drawer>*/}
+            </Hidden>
+          </nav>
+      }
+    </>
   );
 };
 

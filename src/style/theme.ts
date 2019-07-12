@@ -10,4 +10,17 @@ export const theme = createMuiTheme({
       xl: 1920
     }
   },
+  typography: {
+    fontFamily: [
+      '"Spoqa Han Sans"',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Gothic A1"',
+      '"Segoe UI"',
+      'Roboto',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+    ].join(','),
+  },
 });

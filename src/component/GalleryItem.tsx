@@ -74,7 +74,6 @@ const GalleryItem: React.FC<BaseProps & ParentProps & DispatchProps> = (props) =
   const [el, setEl] = useState<HTMLButtonElement | undefined>();
   const { name, url, src, thumbnail } = props.project;
   const classes = useStyles();
-  const Theme = useTheme();
 
   const onProjectClick = (): MouseHandler => e => {
     e.preventDefault();
@@ -83,22 +82,6 @@ const GalleryItem: React.FC<BaseProps & ParentProps & DispatchProps> = (props) =
       project: props.project
     });
   };
-  // const onProjectMouseEnter = (el: HTMLElement | undefined): MouseHandler => (e) => {
-  //   // setIsHover(true);
-  // };
-  // const onProjectMouseLeave = (el: HTMLElement | undefined): MouseHandler => (e) => {
-  //   // setIsHover(false);
-  // };
-  // const onProjectMouseMove = (el: HTMLElement | undefined): MouseHandler => (e) => {
-  //   if (el) {
-  //     const { bottom, top, left, right } = el.getClientRects()[0];
-  //     const [centerX, centerY] = [(left + right) / 2, (bottom + top) / 2];
-  //     const { clientX, clientY } = e;
-  //
-  //   }
-  // };
-
-  // useEffect(() => {}, []);
 
   return <button
     ref={e => {
@@ -108,9 +91,6 @@ const GalleryItem: React.FC<BaseProps & ParentProps & DispatchProps> = (props) =
     }}
     className={classes.root}
     onClick={onProjectClick()}
-    // onMouseEnter={onProjectMouseEnter(el)}
-    // onMouseMove={onProjectMouseMove(el)}
-    // onMouseLeave={onProjectMouseLeave(el)}
   >
     <div className={classes.imgArea}>
       <img src={thumbnail ? thumbnail : './images/noimg_large.gif'} alt={name} className={classes.img}/>

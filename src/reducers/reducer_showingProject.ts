@@ -1,5 +1,4 @@
 import { CLOSE_PROJECT, SELECT_PROJECT } from '../constants/ActionNames';
-import { RootState } from '../types';
 
 
 const initialShowingProject = null;

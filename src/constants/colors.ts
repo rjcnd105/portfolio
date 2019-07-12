@@ -1,11 +1,11 @@
-import { Colors } from "../types";
+import { ContentNames } from "../types";
 
-const colorTable = ['#4ECDC4', '#FF6B6B', '#FED23F', '#7C4CA2'];
+export const colorTable = ['#dddddd', '#4ECDC4', '#FF6B6B', '#FED23F', '#7C4CA2'];
 
-const colors: Colors = {
-  'Portfolio': colorTable[0],
-  'Skills': colorTable[1],
-  'Experiences': colorTable[2],
-  'Contact': colorTable[3],
+export const colors: Record<ContentNames, string> = {
+  Introduce: colorTable[0],
+  Project: colorTable[1],
+  Skills: colorTable[2],
+  Experiences: colorTable[3],
+  Contact: colorTable[4],
 };
-export { colors };

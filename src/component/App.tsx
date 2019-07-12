@@ -1,23 +1,22 @@
-import { Container, Grid, Hidden, Box, Typography, Theme, Drawer } from '@material-ui/core/';
-import React, { createRef, RefObject, UIEventHandler, useEffect, useState } from 'react';
+import { Grid, Theme } from '@material-ui/core/';
+import React, { useState } from 'react';
 import { makeStyles, useTheme, createStyles } from '@material-ui/styles';
 import ProjectView from "./ProjectView";
 import Navigation from "./Navigation";
 import SubContents from "./SubContents";
-import { NavItems } from "../types";
 
-const sideBarWidth = "44px";
+const sideBarWidth = "50px";
 const useStyles = makeStyles((theme: Theme) => {
   return createStyles({
     root: {
       display: 'flex',
       height: '100%',
       overflow: 'scroll',
-      '-webkit-overflow-scrolling':'touch'
+      '-webkit-overflow-scrolling': 'touch'
     },
     content: {
       transition: 'all .6s',
-      width:'100%',
+      width: '100%',
       [theme.breakpoints.up("md")]: {
         marginLeft: sideBarWidth,
         width: `calc(100% - ${sideBarWidth})`,
@@ -32,8 +31,6 @@ const useStyles = makeStyles((theme: Theme) => {
         width: sideBarWidth,
         display: 'block',
         height: '100%',
-        // backgroundColor: colors.pointColors[0],
-
         flexShrink: 0
       }
     },
@@ -43,29 +40,23 @@ const useStyles = makeStyles((theme: Theme) => {
 
 const App: React.FC = () => {
   const classes = useStyles();
-  const theme = useTheme();
-
-  const [navItems, setNavItems] = useState<NavItems>();
+  const navItems = ['Introduce', 'Project', 'Skills', 'Experiences', 'Contact'];
 
   const onScroll = (e: React.UIEvent<HTMLElement>) => {
     const el = e.currentTarget;
-    const parent = el.parentElement;
-    const children = el.children[1].children;
-    if (parent && children) {
-      const top = el.scrollTop + parent.offsetHeight / 2;
-    }
+    const top = el.offsetTop + el.offsetHeight * .5;
   };
-
-  const handleChangeNav = (navItems: NavItems) => setNavItems(navItems);
 
   // useEffect(() => {
   //   console.log(contents);
   // }, []);
 
+  const onNavClick = () => {
+  };
   const app =
     <Grid container spacing={0} className={classes.root} onScroll={onScroll}>
-      <Navigation rootClass={classes.sideNav} navItems={navItems}/>
-      <SubContents className={classes.content} handleChangeNav={handleChangeNav}/>
+      <Navigation rootClass={classes.sideNav} navItems={navItems} onItemClick={onNavClick}/>
+      <SubContents className={classes.content}/>
       <ProjectView/>
     </Grid>;
 

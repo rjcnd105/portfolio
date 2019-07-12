@@ -7,7 +7,6 @@ import { Modal, Theme, Box, Typography, Button, ButtonBase, Link, Grid } from "@
 import Container from "@material-ui/core/Container";
 import Close from './icons/Close';
 import commonStyle from "../style/commonStyle";
-import { theme } from "../style/theme";
 
 const useStyles = makeStyles((theme: Theme) => {
 

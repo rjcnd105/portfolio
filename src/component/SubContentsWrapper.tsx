@@ -7,6 +7,9 @@ import { ContentNames } from "../types";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    root: {
+      marginTop: '24px',
+    },
     title: commonStyle.title,
     subTitle: commonStyle.subTitle,
     innerBox: {
@@ -24,22 +27,25 @@ const useStyles = makeStyles((theme: Theme) =>
       }
     },
 
-    ['Portfolio']: {
-      '& .inner-box:before': { backgroundColor: colors.Portfolio }
+    Introduce: {
+      '& .inner-box:before': { backgroundColor: colors.Project }
     },
-    ['Skills']: {
+    Project: {
+      '& .inner-box:before': { backgroundColor: colors.Project }
+    },
+    Skills: {
       '& .inner-box:before': { backgroundColor: colors.Skills }
     },
-    ['Contact']: {
+    Contact: {
       '& .inner-box:before': { backgroundColor: colors.Contact }
     },
-    ['Experiences']: {
+    Experiences: {
       '& .inner-box:before': { backgroundColor: colors.Experiences }
     },
   }));
 
-type Props = { subTitle: string, name: ContentNames, elemRef?: (el:any) => RefObject<React.ReactElement> };
-const SubContentsWrapper: React.FC<Props> = ({ subTitle, children, name, elemRef }) => {
+type Props = { subTitle: string, name?: ContentNames };
+const SubContentsWrapper: React.FC<Props> = ({ subTitle, children, name }) => {
 
   const classes = useStyles();
 
@@ -48,10 +54,10 @@ const SubContentsWrapper: React.FC<Props> = ({ subTitle, children, name, elemRef
   };
 
   return <Grid
-    className={`${name ? classes[name] : ''} `} ref={elemRef} >
+    className={`${name && classes[name]} ${classes.root}`} id={name} >
     <Container maxWidth="lg">
       <Box className={`inner-box ${classes.innerBox}`} {...boxProperty}>
-        <Typography variant="h3" gutterBottom className={`subtitle ${classes.subTitle}`}>
+        <Typography variant="h3" className={`subtitle ${classes.subTitle}`}>
           {subTitle}
         </Typography>
         {children}

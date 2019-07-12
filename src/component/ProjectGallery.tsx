@@ -8,6 +8,10 @@ import { makeStyles, useTheme, createStyles } from '@material-ui/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme: Theme) => ({
+  gallery: {
+    paddingTop: '24px',
+    paddingBottom: '24px',
+  },
   item: {
     padding: '12px',
     [theme.breakpoints.down("sm")]: {
@@ -37,7 +41,7 @@ const ProjectGallery: React.FC<Props> = (props) => {
   }
 
   return (
-    <Grid container ref={element} style={{ overflow: 'none !important' }}>
+    <Grid container ref={element} className={classes.gallery} style={{ overflow: 'none !important' }}>
       {/*<div className="gutter-sizer"/>*/}
       {items}
     </Grid>
