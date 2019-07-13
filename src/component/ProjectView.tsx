@@ -211,8 +211,8 @@ const ProjectView: React.FC<Props> = ({ showingProject }) => {
               <div className='image' style={{ backgroundImage: 'url(' + src + ')' }}/>
               <div className='image-dimm'/>
             </div>
-          </Link>
-            ;
+          </Link>;
+
         case 'frame':
           return <div className={classes.iframeArea}>
             <iframe title={name} src={url}/>
@@ -227,9 +227,10 @@ const ProjectView: React.FC<Props> = ({ showingProject }) => {
   const urlRender = () => {
     const url = showingProject && showingProject.project.url;
     const mUrl = showingProject && showingProject.project.mUrl;
+    const txt = url && !mUrl ? 'URL: ' : 'PC: ';
     if (showingProject && showingProject.type === 'image') {
       const urlEl = url ?
-        <Typography className="view-url">PC: <Link target='_blank' href={url}>{url}</Link></Typography>
+        <Typography className="view-url">{txt}<Link target='_blank' href={url}>{url}</Link></Typography>
         : '';
       const mUrlEl = mUrl ?
         <Typography className="view-url">Mobile: <Link target='_blank' href={mUrl}>{mUrl}</Link></Typography>
@@ -253,7 +254,7 @@ const ProjectView: React.FC<Props> = ({ showingProject }) => {
         <div className={classes.infoWrap}>
           <div className={classes.infoArea}>
             <Typography className="view-title" variant={"subtitle1"}>{name}</Typography>
-            <Typography className="view-date">투입 기간: {areaDate ? areaDate[0] + ' - ' + areaDate[1] : ''}</Typography>
+            <Typography className="view-date">{areaDate ? '투입 기간: ' + areaDate[0] + ' - ' + areaDate[1] : ''}</Typography>
             {urlRender() /* URL */}
             <Grid container>
               <Grid className='view-info-item' item xs={12} sm={6}>

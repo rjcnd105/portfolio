@@ -144,14 +144,14 @@ const SubContents: React.FC<Props> = (props) => {
             사진을 찍으면 현재 위치에 사진이 등록되게 한 위치기반 SNS이며 구글맵 임베디드로 타 사이트에 배포 가능하게 제작.
             <br/>
             팀장 역활 담당<br/>
-            Python Webserver인 Django 담당, MariaDB Django ORM 연동 후 사용</DateContent>
+            Python 웹서버 Framework인 Django 사용, MariaDB Django ORM 연동 후 운영</DateContent>
         </Box>
       </SubContentWrapper>
 
       <SubContentWrapper subTitle="Contact" name="Contact">
         <Grid container spacing={6} className={`${classes.contact} ${classes.middleBody}`}>
           <Grid item xs={6} sm={3}>
-            <a href='/' title='email'>
+            <a href='mailto: rjcnd105@gmail.com' title='send email'>
               <Box className='icon-wrap'>
                 <Email className={classes.icon}/>
               </Box>
@@ -167,7 +167,7 @@ const SubContents: React.FC<Props> = (props) => {
           {/*  </a>*/}
           {/*</Grid>*/}
           <Grid item xs={6} sm={3}>
-            <a href='/' title='Github'>
+            <a href='https://github.com/rjcnd105?tab=repositories' target="_blank" title='Github'>
               <Box className='icon-wrap'>
                 <Github className={classes.icon}/>
               </Box>

@@ -1,6 +1,5 @@
 import React, { useEffect, createRef, RefObject, useState } from 'react';
 import { Drawer, Hidden, Theme, Box, Breadcrumbs, Paper, Link, ButtonBase } from "@material-ui/core";
-import { NavItems } from "../types";
 import { colors } from "../constants/colors";
 import { makeStyles, useTheme, createStyles } from '@material-ui/styles';
 
@@ -10,14 +9,19 @@ const useStyles = makeStyles((theme: Theme) =>
       zIndex: 1,
       position: 'relative',
     },
-    colorBar: {
-      // backgroundColor: colors.Project,
-      width: '4px',
+    barWrap: {
+      position: 'relative',
       height: '100%',
+    },
+    colorBar: {
+      position: 'absolute',
+      width: '6px',
+      height: '100%',
+      transition: '.2s all',
       '&.introduce': {
         backgroundColor: colors.Introduce
       },
-      '&.portfolio': {
+      '&.project': {
         backgroundColor: colors.Project
       },
       '&.skills': {
@@ -34,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
       position: 'absolute',
       left: '50%', top: '50%',
       transform: 'translate(-50%, -50%) rotate(90deg)',
-      transformOrigin: '50% 25%',
+      transformOrigin: '50% 40%',
       color: '#333',
       '& .pc-nav-item': {
         transition: '.6s all',
@@ -52,33 +56,37 @@ const useStyles = makeStyles((theme: Theme) =>
 
 type Props = {
   rootClass?: string,
-  onItemClick?: (name: string) => void,
+  onItemClick?: (name: number) => void,
   changeActiveItem?: (el: HTMLButtonElement) => void,
   navItems: string[],
+  activeIdx: number
 }
-const Navigation: React.FC<Props> = ({ rootClass, onItemClick, navItems }) => {
+const Navigation: React.FC<Props> = ({ rootClass, onItemClick, navItems, activeIdx }) => {
   const cls = useStyles();
 
-  console.log(navItems);
-  const handleItemClick = (name: string) => () => {
+  const handleItemClick = (idx: number) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    console.log(idx);
     if (onItemClick) {
-      onItemClick(name);
+      onItemClick(idx);
     }
   };
 
-  const [activeItem, setActiveItem] = useState<string>(navItems[0]);
+
   return (
     <>
       {
         (navItems.length > 0) &&
           <nav className={`${rootClass} ${cls.navBar}`}>
             <Hidden smDown>
-              <Box className={`${cls.colorBar} ${activeItem.toLowerCase()}`}/>
+              <Box className={cls.barWrap}>
+                <Box className={`${cls.colorBar} ${navItems[activeIdx].toLowerCase()}`}/>
+              </Box>
               <Box className={cls.pcNavInner}>
                 {
                   navItems.map((v, i) =>
-                    <ButtonBase href="/" className={`pc-nav-item ${v === activeItem && 'pc-nav-item--active'}`}
-                                onClick={handleItemClick(v)}>{v}</ButtonBase>)
+                    <ButtonBase href="/" className={`pc-nav-item ${i === activeIdx && 'pc-nav-item--active'}`}
+                                onClick={handleItemClick(i)}>{v}</ButtonBase>)
                 }
               </Box>
               {/*<Drawer className={cls.navBar}></Drawer>*/}

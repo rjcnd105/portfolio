@@ -9,7 +9,7 @@ const commonStyle = {
     color: '#444',
     marginBottom: '.4em',
     [theme.breakpoints.down("xs")]: {
-      fontSize: '2.8rem'
+      fontSize: '3rem'
     }
   },
   subTitle: {
@@ -27,7 +27,7 @@ const commonStyle = {
     color: '#444',
     paddingBottom: '.6em',
     [theme.breakpoints.down("xs")]: {
-      fontSize: '1.7rem'
+      fontSize: '1.5rem'
     }
   },
   middleBody: {
@@ -36,11 +36,11 @@ const commonStyle = {
     fontWeight: 300,
     color: '#333',
     [theme.breakpoints.down("xs")]: {
-      fontSize: '1.2rem'
+      fontSize: '1.1rem'
     }
   },
   smallBody: {
-    fontSize: '1rem',
+    fontSize: '1.05rem',
     color: '#666',
     [theme.breakpoints.down("xs")]: {
       fontSize: '.9rem'
@@ -60,7 +60,7 @@ const commonStyle = {
   },
   pfDot: {
     color: colors.Project,
-    fontSize: '2.8rem',
+    fontSize: '2.4rem',
     lineHeight: '1.5rem'
   },
   subList: {
@@ -71,7 +71,7 @@ const commonStyle = {
 
     },
     '& li': {
-      paddingBottom: '.2em',
+      paddingBottom: '.25em',
       fontWeight: 300,
 
     }
