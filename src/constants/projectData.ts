@@ -34,7 +34,7 @@ export default [
     thumbnail: imgFolder + 'holo_thumb.jpg',
     src: imgFolder + 'holo.jpg',
     url: 'http://www.holotive.com/',
-    areaDate: ['2016. 12', '2017. 1'],
+    areaDate: ['2018. 5', '2018. 7'],
     techStack: 'ES6~ES9, filtering, masonry layout, gulp, 반응형 웹, Vimeo Api, Vimeo & 이미지 슬라이드, Swiper, Pug',
     description: '중국 고객이 많은 기업이라 영상을 생소한 Vimeo로 작업하였습니다. 반응형에 이미지 + 영상 슬라이드까지 겹쳐 성능과 호환성, 최적화를 거치느라 꽤나 애먹었던 기억이 나네요. </br> 그 외에도 포트폴리오 페이지에서 필터링 기능에 반응형 고려, Filtering, View More 기능까지 있어 도전하는 재미있었습니다.<br/> isotope 라이브러리를 사용했지만 늘 클라이언트는 라이브러리를 초월한 것을 주문한다죠. 그리하여 많은 커스터마이징을 거치게 되었습니다. 이때 운영이 우리 쪽이라 Gulp에 처음으로 Babel을 도입해서 그동안 너무나도 쓰고 싶었던 es6~9 문법을 잔뜩 쓸 수 있어서 굉장히 보람 있었습니다.'
   },

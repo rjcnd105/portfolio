@@ -142,7 +142,7 @@ const SubContents: React.FC<Props> = (props) => {
           <DateContent date='2015. 11' title='동양미래대학교 2015 스마트 SW 개발 경진대회 최우수'>스토리맵이라는 작품으로써 스마트폰으로 GPS로 실시간 사용자의 위치를 찍으며
             사진을 찍으면 현재 위치에 사진이 등록되게 한 위치기반 SNS이며 구글맵 임베디드로 타 사이트에 배포 가능하게 제작.
             <br/>
-            팀장 역활 담당<br/>
+            팀장 역할 담당<br/>
             Python 웹서버 Framework인 Django 사용, MariaDB Django ORM 연동 후 운영</DateContent>
         </Box>
       </SubContentWrapper>

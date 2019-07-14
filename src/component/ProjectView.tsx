@@ -7,6 +7,7 @@ import { Modal, Theme, Box, Typography, Button, ButtonBase, Link, Grid } from "@
 import Container from "@material-ui/core/Container";
 import Close from './icons/Close';
 import commonStyle from "../style/commonStyle";
+import {debounce} from 'lodash';
 
 const useStyles = makeStyles((theme: Theme) => {
 
@@ -51,7 +52,18 @@ const useStyles = makeStyles((theme: Theme) => {
           width: '100%',
           height: '100%',
           top: 0, left: 0, right: 0, bottom: 0, transform: 'translate(0px, 0px)',
-        }
+        },
+
+      },
+      modalWrap: {
+        [theme.breakpoints.up("xs")]: {
+          overflowY: 'auto',
+          '-webkit-overflow-scrolling': 'touch',
+        },
+        [theme.breakpoints.down("xs")]: {
+          height: '100%',
+          maxHeight: '100% !implement'
+        },
       },
       viewWrap: {
         [theme.breakpoints.down("xs")]: {
@@ -130,7 +142,7 @@ const useStyles = makeStyles((theme: Theme) => {
         top: 0, left: 0, right: 0, bottom: 0,
         overflowY: 'auto',
         overflowX: 'hidden',
-        '-webkit-overflow-scrolling':'touch',
+        '-webkit-overflow-scrolling': 'touch',
         padding: '18px',
         boxSizing: 'border-box',
 
@@ -199,6 +211,22 @@ const ProjectView: React.FC<Props> = ({ showingProject }) => {
     setOpen(false);
   };
 
+  const [maxHeight, setMaxHeight] = useState(window.innerHeight - 90);
+
+  useEffect(() => {
+    const handleResize = debounce(() => setMaxHeight(window.innerHeight - 90), 500, {
+      trailing: true,
+      leading: true,
+    });
+    console.log('debounce');
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
   const renderView = () => {
     if (showingProject) {
       const type = showingProject.type;
@@ -245,34 +273,38 @@ const ProjectView: React.FC<Props> = ({ showingProject }) => {
     if (showingProject) {
       const { name, areaDate, url, techStack, description } = showingProject.project;
       return <Container maxWidth="lg" className={classes.modal}>
+
         <ButtonBase className={classes.closeButton} onClick={handleClose} title={'Modal Close'} tabIndex={0}>
           <Close className={classes.closeIcon}/>
         </ButtonBase>
-        <Box className={classes.viewWrap}>
-          {renderView()}
-        </Box>
-        <div className={classes.infoWrap}>
-          <div className={classes.infoArea}>
-            <Typography className="view-title" variant={"subtitle1"}>{name}</Typography>
-            <Typography className="view-date">{areaDate ? '투입 기간: ' + areaDate[0] + ' - ' + areaDate[1] : ''}</Typography>
-            {urlRender() /* URL */}
-            <Grid container>
-              <Grid className='view-info-item' item xs={12} sm={6}>
-                <Typography variant={"subtitle1"} className={classes.smallTitle}>TeckStack<span
-                  className={classes.pfDot}>.</span></Typography>
-                <Typography variant={"body1"} className="view-tech-stack">{techStack}</Typography>
+        <Box className={classes.modalWrap} style={{maxHeight: maxHeight}}>
+          <Box className={classes.viewWrap}>
+            {renderView()}
+          </Box>
+          <div className={classes.infoWrap}>
+            <div className={classes.infoArea}>
+              <Typography className="view-title" variant={"subtitle1"}>{name}</Typography>
+              <Typography
+                className="view-date">{areaDate ? '투입 기간: ' + areaDate[0] + ' - ' + areaDate[1] : ''}</Typography>
+              {urlRender() /* URL */}
+              <Grid container>
+                <Grid className='view-info-item' item xs={12} sm={6}>
+                  <Typography variant={"subtitle1"} className={classes.smallTitle}>TeckStack<span
+                    className={classes.pfDot}>.</span></Typography>
+                  <Typography variant={"body1"} className="view-tech-stack">{techStack}</Typography>
+                </Grid>
+                <Grid className='view-info-item' item xs={12} sm={6}>
+                  <Typography variant={"subtitle1"} className={classes.smallTitle}>Description<span
+                    className={classes.pfDot}>.</span></Typography>
+                  <Typography className="view-description" variant={"body1"}
+                              dangerouslySetInnerHTML={{ __html: description }}>
+                  </Typography>
+                </Grid>
               </Grid>
-              <Grid className='view-info-item' item xs={12} sm={6}>
-                <Typography variant={"subtitle1"} className={classes.smallTitle}>Description<span
-                  className={classes.pfDot}>.</span></Typography>
-                <Typography className="view-description" variant={"body1"}
-                            dangerouslySetInnerHTML={{ __html: description }}>
-                </Typography>
-              </Grid>
-            </Grid>
 
+            </div>
           </div>
-        </div>
+        </Box>
       </Container>
     } else {
       return <div/>
@@ -288,19 +320,16 @@ const ProjectView: React.FC<Props> = ({ showingProject }) => {
 
 
   return (
-    <Box>
-      <Modal
-        className={classes.root}
-        aria-labelledby={showingProject && showingProject.project.name + ' Modal'}
-        // aria-describedby="simple-modal-description"
-        open={open}
-        onClose={handleClose}
-      >
-        {renderModalInner()}
-      </Modal>
-    </Box>
-  );
-}
+    <Modal
+      className={classes.root}
+      aria-labelledby={showingProject && showingProject.project.name + ' Modal'}
+      // aria-describedby="simple-modal-description"
+      open={open}
+      onClose={handleClose}
+    >
+      {renderModalInner()}
+    </Modal>
+  )};
 
 
 const mapStateToProps = ({ showingProject }: RootState) => ({ showingProject });
