@@ -1,7 +1,7 @@
-import React, { useEffect, createRef, RefObject, useState } from 'react';
-import { Drawer, Hidden, Theme, Box, Breadcrumbs, Paper, Link, ButtonBase } from "@material-ui/core";
+import React from 'react';
+import { Hidden, Theme, Box, ButtonBase } from "@material-ui/core";
 import { colors } from "../constants/colors";
-import { makeStyles, useTheme, createStyles } from '@material-ui/styles';
+import { makeStyles, createStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -66,7 +66,6 @@ const Navigation: React.FC<Props> = ({ rootClass, onItemClick, navItems, activeI
 
   const handleItemClick = (idx: number) => (e: React.MouseEvent) => {
     e.preventDefault();
-    console.log(idx);
     if (onItemClick) {
       onItemClick(idx);
     }

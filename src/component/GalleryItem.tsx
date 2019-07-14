@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {  SetShowingProject, setShowingProject } from '../actions';
 import { ShowingProject } from '../types';
 import { BaseProps, MouseHandler } from '../types/common';
 import { connect } from "react-redux";
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 import { Theme, Typography } from "@material-ui/core";
 import { Dispatch } from "redux";
 

@@ -1,6 +1,6 @@
 import { Grid, Theme } from '@material-ui/core/';
-import React, { useRef, useState } from 'react';
-import { makeStyles, useTheme, createStyles } from '@material-ui/styles';
+import React, { useEffect, useState } from 'react';
+import { makeStyles, createStyles } from '@material-ui/styles';
 import ProjectView from "./ProjectView";
 import Navigation from "./Navigation";
 import SubContents from "./SubContents";
@@ -46,23 +46,31 @@ const App: React.FC = () => {
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const appRef = React.createRef<HTMLElement>();
   let navArr: HTMLElement[];
+  const setNavArr = () => {
+    navArr = navItems.map(v => appRef && appRef.current && appRef.current.querySelector('#' + v) || document.createElement('div'));
+  };
+  useEffect(() => {
+    setNavArr();
+  }, []);
 
   const onScroll = (e: React.UIEvent<HTMLElement>) => {
-    if(appRef && appRef.current){
+    if (appRef && appRef.current) {
       const st = appRef.current.scrollTop + appRef.current.offsetHeight * .4;
-      if(!navArr) {
-        navArr = navItems.map(v => appRef && appRef.current && appRef.current.querySelector('#' + v) || document.createElement('div'));
+      if(!navArr){
+        setNavArr();
       }
       else {
-        let currItemIdx;
-        for (let i = navArr.length - 1; i >= 0; i--) {
-          currItemIdx = navArr[i].offsetTop < st && i;
-          if(currItemIdx){
-            break;
+        {
+          let currItemIdx;
+          for (let i = navArr.length - 1; i >= 0; i--) {
+            currItemIdx = navArr[i].offsetTop < st && i;
+            if (currItemIdx) {
+              break;
+            }
           }
-        }
-        if(currItemIdx !== undefined && typeof currItemIdx !== "boolean") {
-          setActiveIdx(currItemIdx);
+          if (currItemIdx !== undefined && typeof currItemIdx !== "boolean") {
+            setActiveIdx(currItemIdx);
+          }
         }
       }
     }
@@ -70,8 +78,8 @@ const App: React.FC = () => {
 
 
   const onNavClick = (idx: number) => {
-    if(navArr && appRef && appRef.current){
-      scrollAnimate(appRef.current, navArr[idx].offsetTop, 400)
+    if (navArr && appRef && appRef.current) {
+      scrollAnimate(appRef.current, navArr[idx].offsetTop - 50, 400)
     }
   };
   const app =

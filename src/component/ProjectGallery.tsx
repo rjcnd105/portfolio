@@ -1,10 +1,10 @@
-import React, { useEffect, createRef, RefObject } from 'react';
+import React, { createRef, RefObject } from 'react';
 import { connect } from 'react-redux';
 import { ProjectData, RootState } from '../types';
 import { BaseProps } from '../types/common';
 import GalleryItem from './GalleryItem';
 import { Grid, Theme } from '@material-ui/core';
-import { makeStyles, useTheme, createStyles } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme: Theme) => ({

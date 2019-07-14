@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Theme, Typography } from "@material-ui/core";
-import React, { RefObject } from "react";
-import { makeStyles, useTheme, createStyles } from '@material-ui/styles';
+import React from "react";
+import { makeStyles, createStyles } from '@material-ui/styles';
 import commonStyle from "../style/commonStyle";
 import { colors } from "../constants/colors";
 import { ContentNames } from "../types";

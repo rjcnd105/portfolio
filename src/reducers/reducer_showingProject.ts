@@ -10,7 +10,6 @@ export default function (state = initialShowingProject, action: {type: string, p
       return null;
     case SELECT_PROJECT:
       return action.payload;
-      // return action.payload;
   }
   return initialShowingProject;
 };

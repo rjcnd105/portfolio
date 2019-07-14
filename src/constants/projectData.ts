@@ -26,9 +26,8 @@ export default [
     url: 'http://www.junglim.co.kr/',
     areaDate: ['2017. 12', '2018. 2'],
     techStack: 'Slider 제작, Scroll Animation, Video Handling, Gulp, less, css3, gsap, ie8+, Swiper, Pug, IE9+',
-    description: '메인 페이지의 슬라이드를 정림에서 요구하는 스타일로 하려다 보니 새로 만들게 되었습니다. ' +
-      '</br>' +
-      '이곳에서 IDENTITY 밑의 화살표를 누르면 브랜드 스토리가 스크롤 애니메이션 형식으로 펼쳐집니다.'
+    description: '메인 페이지의 슬라이드를 정림에서 요구하는 스타일로 하려다 보니 자바스크립트로 슬라이드를 새로 만들게 되었습니다. ' +
+      '</br>' + '기업형 페이지로써 메인은 이미지 중심으로 화려하게, 서브 페이지는 심플하게 구성하여 깔끔해서 좋았던 프로젝트입니다. 사용자 경험을 위해 몇 모션 로직을 넣었습니다. IDENTITY 항목 밑의 화살표를 누르면 브랜드 스토리가 스크롤 애니메이션 형식으로 펼쳐집니다.'
   },
   {
     name: '홀로티브 홈페이지 구축',

@@ -7,7 +7,7 @@ export default [
     src: '',
     url: 'https://hoejun.s3.ap-northeast-2.amazonaws.com/project/w_point/index.html',
     areaDate: '',
-    techStack: 'GSAP, 반응형',
+    techStack: 'GSAP',
     description: '외주 받아서 일했던 작업물입니다. 한정된 자원으로 애니메이션을 만드려고 여러 고민을 했던 추억이 떠오르네요. 사람이 걷는 것과 타는 것의 속도감을 자연스럽게 표현하기 위해 배경의 속도감 조절에 신경을 많이 썼습니다.'
   },
   {

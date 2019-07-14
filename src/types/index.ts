@@ -1,6 +1,3 @@
-import { RefObject } from "react";
-import * as React from "react";
-
 export type ProjectData = {
   name: string,
   thumbnail: string,
@@ -14,12 +11,6 @@ export type ProjectData = {
 export type ShowingProject = {
   project: ProjectData,
   type: 'image' | 'frame',
-}
-
-export type EtcData = {
-  title: string,
-  description: string,
-  date: string,
 }
 
 export interface RootState {

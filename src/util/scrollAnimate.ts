@@ -7,8 +7,7 @@ export default (element: HTMLElement, to: number, duration: number = 400) => {
 
   const animateScroll = function(){
     currentTime += increment;
-    const val = easeInOutQuad(currentTime, start, change, duration);
-    element.scrollTop = val;
+    element.scrollTop = easeInOutQuad(currentTime, start, change, duration);
     if(currentTime < duration) {
       setTimeout(animateScroll, increment);
     }

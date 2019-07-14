@@ -1,5 +1,5 @@
-import React, { createRef, RefObject, useEffect, useState } from 'react';
-import { Box, Container, Grid, Link, List, Theme, Typography } from "@material-ui/core";
+import React from 'react';
+import { Box, Container, Grid,  List, Theme, Typography } from "@material-ui/core";
 
 import { ToyProjectGallery, WorkProjectGallery } from "./ProjectGallery";
 import { GridProps } from "@material-ui/core/Grid";
@@ -8,7 +8,6 @@ import SubContentWrapper from './SubContentsWrapper';
 import commonStyle from '../style/commonStyle';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Email from "./icons/Email";
-import Phone from "./icons/Phone";
 import Instagram from "./icons/Instagram";
 import Github from "./icons/Github";
 import { colors } from "../constants/colors";
