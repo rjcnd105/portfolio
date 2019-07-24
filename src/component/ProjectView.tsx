@@ -7,7 +7,8 @@ import { Modal, Theme, Box, Typography, Button, ButtonBase, Link, Grid } from "@
 import Container from "@material-ui/core/Container";
 import Close from './icons/Close';
 import commonStyle from "../style/commonStyle";
-import {debounce} from 'lodash';
+import { debounce } from 'lodash';
+import { theme } from "../style/theme";
 
 const useStyles = makeStyles((theme: Theme) => {
 
@@ -211,15 +212,29 @@ const ProjectView: React.FC<Props> = ({ showingProject }) => {
     setOpen(false);
   };
 
-  const [maxHeight, setMaxHeight] = useState(window.innerHeight - 90);
+
+  const getModalSize = function () {
+    let value: string;
+    if (window.innerWidth > theme.breakpoints.width('sm')) {
+      value = window.innerHeight - 90 + 'px';
+    }
+    else {
+      value = 'none';
+    }
+
+    return value;
+  };
+
+  const [maxHeight, setMaxHeight] = useState<string>(getModalSize());
+
 
   useEffect(() => {
-    const handleResize = debounce(() => setMaxHeight(window.innerHeight - 90), 500, {
+    const handleResize = debounce(() => {
+      setMaxHeight(getModalSize());
+    }, 500, {
       trailing: true,
       leading: true,
     });
-    console.log('debounce');
-
     window.addEventListener('resize', handleResize);
 
     return () => {
@@ -277,7 +292,7 @@ const ProjectView: React.FC<Props> = ({ showingProject }) => {
         <ButtonBase className={classes.closeButton} onClick={handleClose} title={'Modal Close'} tabIndex={0}>
           <Close className={classes.closeIcon}/>
         </ButtonBase>
-        <Box className={classes.modalWrap} style={{maxHeight: maxHeight}}>
+        <Box className={classes.modalWrap} style={{ maxHeight: maxHeight }}>
           <Box className={classes.viewWrap}>
             {renderView()}
           </Box>
@@ -329,7 +344,8 @@ const ProjectView: React.FC<Props> = ({ showingProject }) => {
     >
       {renderModalInner()}
     </Modal>
-  )};
+  )
+};
 
 
 const mapStateToProps = ({ showingProject }: RootState) => ({ showingProject });
