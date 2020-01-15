@@ -5,23 +5,23 @@ export default (element: HTMLElement, to: number, duration: number = 400) => {
 
   let currentTime = 0;
 
-  const animateScroll = function(){
+  const animateScroll = function () {
     currentTime += increment;
     element.scrollTop = easeInOutQuad(currentTime, start, change, duration);
-    if(currentTime < duration) {
+    if (currentTime < duration) {
       setTimeout(animateScroll, increment);
     }
   };
   animateScroll();
 }
 
-//t = current time
-//b = start value
-//c = change in value
-//d = duration
+// t = current time
+// b = start value
+// c = change in value
+// d = duration
 const easeInOutQuad = function (t: number, b: number, c: number, d: number) {
-  t /= d/2;
-  if (t < 1) return c/2*t*t + b;
+  t /= d / 2;
+  if (t < 1) return c / 2 * t * t + b;
   t--;
-  return -c/2 * (t*(t-2) - 1) + b;
+  return -c / 2 * (t * (t - 2) - 1) + b;
 };

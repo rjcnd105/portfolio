@@ -1,4 +1,4 @@
-import {imgFolder} from "../config";
+import { imgFolder } from '../config';
 
 export default [
   {

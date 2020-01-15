@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
+import projectData from '../constants/projectData';
+import toyProjectData from '../constants/toyProjectData';
 import showingProjectReducer from './reducer_showingProject';
-import projectData from "../constants/projectData";
-import toyProjectData from "../constants/toyProjectData";
 
 const rootReducer = combineReducers({
   showingProject: showingProjectReducer,

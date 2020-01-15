@@ -1,4 +1,2 @@
 export const CLOSE_PROJECT = 'CLOSE_PROJECT';
 export const SELECT_PROJECT = 'SELECT_PROJECT';
-
-

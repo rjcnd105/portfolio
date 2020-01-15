@@ -1,5 +1,5 @@
-import SvgIcon, { SvgIconProps } from "@material-ui/core/SvgIcon"
-import * as React from "react";
+import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon'
+import * as React from 'react';
 
 const Close = (props: SvgIconProps) => <SvgIcon {...props}>
   <path xmlns="http://www.w3.org/2000/svg"

@@ -1,4 +1,4 @@
-import {imgFolder} from '../config'
+import { imgFolder } from '../config'
 export default [
   // {
   //   name: 'etraX 레코닷 모바일 페이지 구축',

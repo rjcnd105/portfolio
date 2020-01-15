@@ -1,12 +1,11 @@
+import { Theme, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import {  SetShowingProject, setShowingProject } from '../actions';
 import { ShowingProject } from '../types';
 import { BaseProps, MouseHandler } from '../types/common';
-import { connect } from "react-redux";
-import { makeStyles } from '@material-ui/styles';
-import { Theme, Typography } from "@material-ui/core";
-import { Dispatch } from "redux";
-
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -19,14 +18,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     overflow: 'hidden',
     transition: 'all 0.7s cubic-bezier(.25,.8,.25,1)',
     boxShadow: '0 0 3.4rem -.8rem rgba(33,33,33,.2)',
-    borderRadius: "3px",
+    borderRadius: '3px',
     // boxShadow: '0px 1px 5px 0px rgba(119,119,119,0.1)',
     '&:hover, &:focus': {
       transform: 'translateY(-8px)',
       boxShadow: '0 0 3.7rem -.8rem rgba(33,33,33,0.42)',
       cursor: 'pointer'
     },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('sm')]: {
       '&:hover, &:focus': {
         transform: 'translateY(-12px)',
       }
@@ -34,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   imgArea: {
     width: '100%',
-    paddingBottom: "115%",
+    paddingBottom: '115%',
     position: 'relative',
     overflow: 'hidden',
     boxSizing: 'border-box',
@@ -105,6 +104,5 @@ const mapDispatchToProps = (dispatch: Dispatch):
     setShowingProject: (d) => dispatch(setShowingProject(d)),
   });
 
-
 export default connect(null,
-  mapDispatchToProps)(GalleryItem);
+                       mapDispatchToProps)(GalleryItem);

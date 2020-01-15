@@ -1,9 +1,9 @@
-import { Box, Container, Grid, Theme, Typography } from "@material-ui/core";
-import React from "react";
-import { makeStyles, createStyles } from '@material-ui/styles';
-import commonStyle from "../style/commonStyle";
-import { colors } from "../constants/colors";
-import { ContentNames } from "../types";
+import { Box, Container, Grid, Theme, Typography } from '@material-ui/core';
+import { createStyles, makeStyles } from '@material-ui/styles';
+import React from 'react';
+import { colors } from '../constants/colors';
+import commonStyle from '../style/commonStyle';
+import { ContentNames } from '../types';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

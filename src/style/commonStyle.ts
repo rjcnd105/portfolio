@@ -1,5 +1,5 @@
-import { colors } from "../constants/colors";
-import { theme } from "./theme";
+import { colors } from '../constants/colors';
+import { theme } from './theme';
 
 const commonStyle = {
   title: {
@@ -8,7 +8,7 @@ const commonStyle = {
     lineHeight: 1.2,
     color: '#444',
     marginBottom: '.4em',
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down('xs')]: {
       fontSize: '3rem'
     }
   },
@@ -16,7 +16,7 @@ const commonStyle = {
     fontSize: '2.9rem',
     fontWeight: 100,
     color: '#444',
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down('xs')]: {
       fontSize: '2.4rem'
     }
   },
@@ -26,23 +26,23 @@ const commonStyle = {
     fontWeight: 100,
     color: '#444',
     paddingBottom: '.6em',
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down('xs')]: {
       fontSize: '1.5rem'
     }
   },
   middleBody: {
-    fontSize: '1.3rem',
+    fontSize: '1.2rem',
     lineHeight: 1.45,
     fontWeight: 300,
     color: '#333',
-    [theme.breakpoints.down("xs")]: {
-      fontSize: '1.1rem'
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '1.05rem'
     }
   },
   smallBody: {
     fontSize: '1.05rem',
     color: '#666',
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down('xs')]: {
       fontSize: '.9rem'
     }
   },
@@ -77,6 +77,5 @@ const commonStyle = {
     }
   }
 };
-
 
 export default commonStyle;

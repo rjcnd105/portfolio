@@ -1,11 +1,11 @@
+import { Grid, Theme } from '@material-ui/core';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import React, { createRef, RefObject } from 'react';
 import { connect } from 'react-redux';
 import { ProjectData, RootState } from '../types';
 import { BaseProps } from '../types/common';
 import GalleryItem from './GalleryItem';
-import { Grid, Theme } from '@material-ui/core';
-import { makeStyles, useTheme } from '@material-ui/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme: Theme) => ({
   gallery: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   item: {
     padding: '12px',
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('sm')]: {
       padding: '16px',
     }
   }
@@ -34,14 +34,14 @@ const ProjectGallery: React.FC<Props> = (props) => {
 
   // useEffect(() => {}, []);
 
-  const items = projectList.map((data: ProjectData, i) => <Grid item xs={12} sm={6} md={4} key={data.name} className={classes.item}><GalleryItem type={props.type}
-    className={`project_item`} project={data}/></Grid>);
-  if(matches){
+  const items = projectList.map((data: ProjectData, i) => <Grid item={true} xs={12} sm={6} md={4} key={data.name} className={classes.item}><GalleryItem type={props.type}
+    className={'project_item'} project={data}/></Grid>);
+  if (matches) {
 
   }
 
   return (
-    <Grid container ref={element} className={classes.gallery} style={{ overflow: 'none !important' }}>
+    <Grid container={true} ref={element} className={classes.gallery} style={{ overflow: 'none !important' }}>
       {/*<div className="gutter-sizer"/>*/}
       {items}
     </Grid>

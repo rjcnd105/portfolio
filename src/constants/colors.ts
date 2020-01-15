@@ -1,4 +1,4 @@
-import { ContentNames } from "../types";
+import { ContentNames } from '../types';
 
 export const colorTable = ['#dddddd', '#4ECDC4', '#FF6B6B', '#FED23F', '#7C4CA2'];
 

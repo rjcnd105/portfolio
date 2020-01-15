@@ -1,7 +1,7 @@
+import { Box, ButtonBase, Hidden, Theme } from '@material-ui/core';
+import { createStyles, makeStyles } from '@material-ui/styles';
 import React from 'react';
-import { Hidden, Theme, Box, ButtonBase } from "@material-ui/core";
-import { colors } from "../constants/colors";
-import { makeStyles, createStyles } from '@material-ui/styles';
+import { colors } from '../constants/colors';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     pcNavInner: {
       position: 'absolute',
+      display: 'flex',
       left: '50%', top: '50%',
       transform: 'translate(-50%, -50%) rotate(90deg)',
       transformOrigin: '50% 40%',
@@ -52,7 +53,6 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
   }));
-
 
 type Props = {
   rootClass?: string,
@@ -71,20 +71,21 @@ const Navigation: React.FC<Props> = ({ rootClass, onItemClick, navItems, activeI
     }
   };
 
-
   return (
     <>
       {
         (navItems.length > 0) &&
           <nav className={`${rootClass} ${cls.navBar}`}>
-            <Hidden smDown>
+            <Hidden smDown={true}>
               <Box className={cls.barWrap}>
                 <Box className={`${cls.colorBar} ${navItems[activeIdx].toLowerCase()}`}/>
               </Box>
               <Box className={cls.pcNavInner}>
                 {
                   navItems.map((v, i) =>
-                    <ButtonBase href="/" className={`pc-nav-item ${i === activeIdx && 'pc-nav-item--active'}`}
+                    <ButtonBase key={v}
+                                href="/"
+                                className={`pc-nav-item ${i === activeIdx ? 'pc-nav-item--active' : ''}`}
                                 onClick={handleItemClick(i)}>{v}</ButtonBase>)
                 }
               </Box>

@@ -1,6 +1,5 @@
 import { CLOSE_PROJECT, SELECT_PROJECT } from '../constants/ActionNames';
 
-
 const initialShowingProject = null;
 
 export default function (state = initialShowingProject, action: {type: string, payload: any}) {
