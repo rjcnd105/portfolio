@@ -3,31 +3,34 @@ import { theme } from './theme';
 
 const commonStyle = {
   title: {
-    fontSize: '3.8rem',
-    fontWeight: 400,
-    lineHeight: 1.2,
+    fontSize: '2.75rem',
+    fontWeight: 100,
+    lineHeight: 1.25,
+    letterSpacing: '-.125rem',
     color: '#444',
-    marginBottom: '.4em',
+    marginBottom: '.4rem',
+    marginTop: '3rem',
     [theme.breakpoints.down('xs')]: {
-      fontSize: '3rem'
+      fontSize: '2.5rem'
     }
   },
   subTitle: {
-    fontSize: '2.9rem',
-    fontWeight: 100,
+    fontSize: '1rem',
+    fontWeight: 700,
     color: '#444',
     [theme.breakpoints.down('xs')]: {
-      fontSize: '2.4rem'
+      fontSize: '1rem'
     }
   },
   bigBody: {
-    fontSize: '2rem',
-    lineHeight: 1.45,
-    fontWeight: 100,
-    color: '#444',
+    letterSpacing: '-.025rem',
+    fontSize: '1rem',
+    lineHeight: 1.8,
+    fontWeight: 400,
+    color: '#888',
     paddingBottom: '.6em',
     [theme.breakpoints.down('xs')]: {
-      fontSize: '1.5rem'
+      fontSize: '.9rem'
     }
   },
   middleBody: {
@@ -40,40 +43,43 @@ const commonStyle = {
     }
   },
   smallBody: {
-    fontSize: '1.05rem',
+    fontSize: '1rem',
     color: '#666',
     [theme.breakpoints.down('xs')]: {
       fontSize: '.9rem'
     }
   },
   middleTitle: {
-    fontSize: '1.8rem',
+    fontSize: '1.25rem',
     marginBottom: '.3em',
     // marginTop: '.3em',
     color: '#444',
   },
   smallTitle: {
-    fontSize: '1.5rem',
-    marginBottom: '.3em',
+    fontSize: '1rem',
     marginTop: '.15em',
-    color: '#444',
+    marginBottom: 0,
+    color: '#666',
   },
   pfDot: {
     color: colors.Project,
-    fontSize: '2.4rem',
+    fontSize: '2rem',
     lineHeight: '1.5rem'
   },
   subList: {
     fontFamily: "'Spoqa Han Sans', -apple-system, BlinkMacSystemFont, 'Gothic A1', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu'",
     '& li:before': {
       content:"'· '",
+      marginRight: '4px',
+      fontWeight: 'bold',
       display: 'inline',
 
     },
     '& li': {
+      fontSize: '1rem',
+      lineHeight: 1.8,
       paddingBottom: '.25em',
       fontWeight: 300,
-
     }
   }
 };

@@ -5,8 +5,8 @@ export const theme = createMuiTheme({
     values: {
       xs: 0,
       sm: 520,
-      md: 960,
-      lg: 1280,
+      md: 860,
+      lg: 1140,
       xl: 1920
     }
   },

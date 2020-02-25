@@ -12,6 +12,7 @@ import Instagram from './icons/Instagram';
 import { ToyProjectGallery, WorkProjectGallery } from './ProjectGallery';
 import SubContentWrapper from './SubContentsWrapper';
 
+// @ts-ignore
 const useStyle = makeStyles((theme: Theme) => ({
   ...commonStyle,
   contact: {
@@ -74,8 +75,9 @@ const SubContents: React.FC<Props> = (props) => {
             </Typography>
             <Box paddingTop={4}>
               <Typography variant={'body1'} className={classes.bigBody}>
-                2년간 웹 에이전시에서 스크립터로 일했으며 사용자 편의성과 경험을 최우선으로 생각합니다. 늘 더 좋은 방법이 없는지 고심하는 습관이 있습니다. 동료들과 서로 즐겁게 기술적 발전을 도모할 수
-                있는 환경을 추구합니다.
+                React, Typescript를 통해 재사용 가능하고 직관적인 개발을 선호합니다.<br/>
+                웹 인터렉션 디자인을 좋아하며 더 나은 사용자 경험을 만들어내는 것에 행복함을 느낍니다. <br/>
+                최근 <a href='https://graphql.org/' target='_blank'>Graphql</a>, <a href='https://ramdajs.com/' target='_blank'>ramda</a>, <a href='https://www.protopie.io/' target='_black'>protopie</a>, <a href='https://en.wikipedia.org/wiki/Domain-driven_design' target='_black'>DDD</a>, <a href='https://redux-observable.js.org/' target='_black'>redux-observable</a> 에 큰 관심을 가지고 있습니다.
               </Typography>
             </Box>
           </Box>

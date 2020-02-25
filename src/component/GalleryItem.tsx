@@ -49,9 +49,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '100%'
   },
   name: {
-    padding: '.7em .7em .6em .7em',
-    fontSize: '1rem',
-    color: '#383838',
+    padding: '.7rem 1.125rem',
+    fontSize: '.875rem',
+    color: '#444',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',

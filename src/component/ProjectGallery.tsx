@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   gallery: {
     paddingTop: '24px',
     paddingBottom: '24px',
+    margin: '0 -12px'
   },
   item: {
     padding: '12px',
@@ -34,7 +35,7 @@ const ProjectGallery: React.FC<Props> = (props) => {
 
   // useEffect(() => {}, []);
 
-  const items = projectList.map((data: ProjectData, i) => <Grid item={true} xs={12} sm={6} md={4} key={data.name} className={classes.item}><GalleryItem type={props.type}
+  const items = projectList.map((data: ProjectData, i) => <Grid item={true} xs={12} sm={6} md={4} lg={3} key={data.name} className={classes.item}><GalleryItem type={props.type}
     className={'project_item'} project={data}/></Grid>);
   if (matches) {
 

@@ -19,11 +19,11 @@ const useStyles = makeStyles((theme: Theme) =>
         content: "''",
         display: 'block',
         position: 'absolute',
-        width: '30px',
+        width: '32px',
         // minWidth:'40px',
         height: '4px',
-        top: 0,
-        left: '-4px'
+        top: '-4px',
+        left: '-1px'
       }
     },
 
