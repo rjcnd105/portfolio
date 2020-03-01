@@ -10,13 +10,14 @@ export default [
   //   description: ''
   // },
   {
-    name: 'Webthflat 홈페이지 구축',
-    thumbnail: imgFolder + 'lmoa_thumb.png',
-    src: imgFolder + 'lmoa.jpg',
+    name: 'Webthflat 선생님 웹앱 구축',
+    thumbnail: imgFolder + 'webthflat_thumb.png',
+    src: imgFolder + 'webthflat.png',
     url: 'https://my.mathflat.com/',
-    areaDate: ['2019. 8', '2020. 3'],
-    techStack: 'Data Api 정의 및 Ajax 처리, SPA, Lodash, Gulp, Sass, PostCSS, css3, Gsap, Youtube Api, Minify, Image lazy load, 적응형 + 반응형 웹, IE8+ 크로스브라우징, SVG 애니메이션, Pug',
-    description: '제가 2년간 스크립터로 일하며 가장 큰 보람을 느꼈던 프로젝트입니다. </br> 모든 스크립트와 대부분의 모션 UX를 제가 맡아 뮤지엄에 맞게 유려한 모션을 구현하는 데 초점을 두었으며, 사용자에 동작에 반응하는 느낌을 줌으로써 직접 작품을 고르는 느낌을 내었습니다. </br> 메인 페이지는 페이지 이동 없이 많은 양의 데이터와 이미지를 받아야 하므로 SPA 형식을 구현하기 위해 동적으로 AJAX를 하였고 퀄리티 높은 이미지를 사용자의 딜레이를 최소한으로 하며 뿌려주기 위해 이미지의 Lazy loding을 전체적으로 적용시켰습니다.'
+    areaDate: ['2019. 8', '~'],
+    techStack: 'Typescript, React, mobx, styled-component, webpack',
+    description: 'React, mobx, typescript를 사용하며 다양한 고민을 하며 한층 더 성장할 수 있었던 프로젝트 입니다. <br/>' +
+      '자세한 내용은 <a href="https://gggururu.tistory.com/8" target="_blank">제 블로그 글 </a> 에서 보실 수 있습니다.'
   },
   {
     name: '롯데뮤지엄 홈페이지 구축 PC & Mobile',

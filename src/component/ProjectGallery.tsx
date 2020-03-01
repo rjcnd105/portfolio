@@ -11,7 +11,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   gallery: {
     paddingTop: '24px',
     paddingBottom: '24px',
-    margin: '0 -12px'
+    margin: '0 -12px',
+    [theme.breakpoints.down('sm')]: {
+      margin: '0 0'
+    }
   },
   item: {
     padding: '12px',

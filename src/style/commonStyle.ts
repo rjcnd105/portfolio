@@ -34,12 +34,12 @@ const commonStyle = {
     }
   },
   middleBody: {
-    fontSize: '1.2rem',
+    fontSize: '.75rem',
     lineHeight: 1.45,
     fontWeight: 300,
     color: '#333',
     [theme.breakpoints.down('xs')]: {
-      fontSize: '1.05rem'
+      fontSize: '.75rem'
     }
   },
   smallBody: {
