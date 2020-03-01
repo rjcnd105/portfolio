@@ -137,7 +137,7 @@ const SubContents: React.FC<Props> = (props) => {
         <Box paddingTop={4} paddingBottom={4}>
 
           <DateContent date="2019. 8 ~" title="프리윌린 재직 중">수학 관련 서비스 앱 Mathflat을 웹으로 이식하는 프로젝트 Webthflat 프론트엔드 개발자로써 일하고 있습니다.<br/>
-          React, Typescript, Mobx, styled-component 등을 사용사용하여 학생 출석체크 달력, 학생 반 정보 관리, 문자 템플릿과 문자 송수신 기능, 문제지 학생별 멀티 다운로드, PDF 출력 용 보고서 등을 작업하였습니다.</DateContent>
+          React, Typescript, Mobx, styled-component 등을 사용하여 학생 출석체크 달력, 학생 반 정보 관리, 문자 템플릿과 문자 송수신 기능, 문제지 학생별 멀티 다운로드, PDF 출력 용 보고서 등을 작업하였습니다.</DateContent>
           <DateContent date="2019. 7 ~ 2019. 11" title="패스트캠퍼스 React 과정 수강 완료"/>
           <DateContent date="2019. 5" title="정보처리기사 취득"/>
           <DateContent date="2016. 11 ~ 2018. 11" title="이트라이브">2년간 다니며 20개 이상의 프로젝트 진행 - 자세한 작업 내용은 위의 프로젝트를
