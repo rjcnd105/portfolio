@@ -110,12 +110,12 @@ const SubContents: React.FC<Props> = (props) => {
             <li>좋은 디자인이 뭘까라는 것을 늘 고민하며 디자이너들과 이야기하는 것을 즐깁니다.</li>
             <li>직급, 나이에 상관없이 솔직하게 말하는 것을 좋아합니다.</li>
           </SubList>
-          <SubList title="HTML / CSS">
-            <li>CrossBrowsing 및 반응형 & 적응형 웹을 만들 수 있습니다.</li>
-            <li>Sass, Less 등 CSS Preprocessor를 사용할 수 있습니다.</li>
-            <li>CSS3의 기능들을 사용할 수 있으며 CSS3 애니메이션을 다룰 수 있습니다.</li>
-            <li>BEM 등의 CSS 방법론을 적용할 수 있습니다.</li>
-            <li>인스펙터로 타사의 HTML, CSS 구조와 Design System 을 찾아 보는 취미가 있습니다.</li>
+          <SubList title="React">
+            <li>Typescript와 React를 같이 사용하는데 익숙합니다.</li>
+            <li>React Hook에 익숙하며 커스텀 훅 만드는 것을 좋아합니다.</li>
+            <li>Redux의 개념과 사용방법을 알고 있습니다.</li>
+            <li>Mobx에 익숙하며 mobx-react-lite, mobx-utils과 같이 사용하는 것을 즐깁니다.</li>
+            <li>리엑트의 다양한 패턴을 연구하며 Render Props와 Custom Hook과의 조합을 좋아합니다.</li>
           </SubList>
           <SubList title="Javascript">
             <li>Compose, Curry, HOF 등의 함수형 기법을 사용하며 함수형 프로그래밍을 사랑합니다 ♥</li>
@@ -123,12 +123,13 @@ const SubContents: React.FC<Props> = (props) => {
             <li>상태가 지속적으로 변하는 단에서는 객체지향의 DDD한 방법론을 지향합니다.</li>
             <li>전체적으로 Mixin 적인 개발 방법론을 지향합니다.</li>
           </SubList>
-          <SubList title="React">
-            <li>Typescript와 React를 같이 사용하는데 익숙합니다.</li>
-            <li>React Hook에 익숙하며 커스텀 훅 만드는 것을 좋아합니다.</li>
-            <li>Redux의 개념과 사용방법을 알고 있습니다.</li>
-            <li>Mobx에 익숙하며 mobx-react-lite, mobx-utils과 같이 사용하는 것을 즐깁니다.</li>
-            <li>리엑트의 다양한 패턴을 연구하며 Render Props와 Custom Hook과의 조합을 좋아합니다.</li>
+          <SubList title="HTML / CSS">
+            <li>CrossBrowsing 및 반응형 & 적응형 웹을 만들 수 있습니다.</li>
+            <li>Sass, Less 등 CSS Preprocessor를 사용할 수 있습니다.</li>
+            <li>CSS3의 기능들을 사용할 수 있으며 CSS3 애니메이션을 다룰 수 있습니다.</li>
+            <li>BEM 등의 CSS 방법론을 적용할 수 있습니다.</li>
+            <li>인스펙터로 타사의 HTML, CSS 구조와 Design System 을 찾아 보는 취미가 있습니다.</li>
+            <li>css/js 를 활용한 인터렉션 디자이너 역활을 했습니다.</li>
           </SubList>
         </Box>
       </SubContentWrapper>

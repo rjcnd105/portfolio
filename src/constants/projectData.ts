@@ -17,6 +17,7 @@ export default [
     areaDate: ['2019. 8', '~'],
     techStack: 'Typescript, React, mobx, styled-component, webpack',
     description: 'React, mobx, typescript를 사용하며 다양한 고민을 하며 한층 더 성장할 수 있었던 프로젝트 입니다. <br/>' +
+      '학생 출석체크 달력, 학생 반 정보 관리, 문자 템플릿과 문자 송수신 기능, 문제지 학생별 멀티 다운로드, 학습지 만들기, PDF 출력 용 원터치보고서 등을 작업하였습니다. <br/>' +
       '자세한 내용은 <a href="https://gggururu.tistory.com/8" target="_blank">제 블로그 글 </a> 에서 보실 수 있습니다.'
   },
   {
